@@ -5,3 +5,5 @@ const base_url = `${dominio}:${port}`;
 const routes = {
     selecoes: `${base_url}/selecoes`
 };
+
+export { routes };
