@@ -1,0 +1,35 @@
+├── APP
+│   ├── assets
+│   ├── index.html
+│   ├── package.json
+│   └── src
+│       ├── app
+│       │   └── main.js
+│       ├── components
+│       │   ├── footer
+│       │   │   ├── index.css
+│       │   │   └── index.js
+│       │   └── navbar
+│       │       ├── index.css
+│       │       └── index.js
+│       ├── config
+│       │   ├── env.js
+│       │   └── routes.js
+│       ├── pages
+│       │   ├── home
+│       │   │   ├── index.css
+│       │   │   ├── index.html
+│       │   │   └── index.js
+│       │   └── selecoes
+│       │       ├── index.css
+│       │       ├── index.html
+│       │       └── index.js
+│       ├── services
+│       │   ├── http.js
+│       │   └── selecoes.service.js
+│       ├── styles
+│       │   ├──  theme.css
+│       │   └── base.css
+│       └── utils
+│           ├── formatters.js
+│           └── validators.js
