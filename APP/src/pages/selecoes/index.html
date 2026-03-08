@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<title>Seleções</title>
+
+<link rel="stylesheet" href="/src/pages/selecoes/index.css">
+
+</head>
+
+<body>
+
+<h1>Seleções</h1>
+
+<h2>Cadastrar / Editar seleção</h2>
+
+<form id="form-selecao">
+
+<input type="hidden" id="selecao-id">
+
+<input type="text" id="nome" placeholder="Nome da seleção" required>
+
+<input type="text" id="grupo" placeholder="Grupo" required>
+
+<input type="text" id="logo" placeholder="URL da logo" required>
+
+<button type="submit">Salvar</button>
+
+</form>
+
+<hr>
+
+<div id="selecoes-container"></div>
+
+<script type="module" src="/src/pages/selecoes/index.js"></script>
+
+</body>
+</html>

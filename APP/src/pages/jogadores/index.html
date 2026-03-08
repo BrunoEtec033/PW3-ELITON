@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<title>Jogadores</title>
+
+<link rel="stylesheet" href="/src/pages/jogadores/index.css">
+
+</head>
+
+<body>
+
+<h1 id="titulo-selecao"></h1>
+
+<h2>Adicionar jogador</h2>
+
+<form id="form-jogador">
+
+<input type="text" id="nome" placeholder="Nome do jogador" required>
+
+<input type="number" id="camisa" placeholder="Camisa" required>
+
+<input type="text" id="posicao" placeholder="Posição" required>
+
+<input type="number" id="gols" placeholder="Gols" required>
+
+<label>
+<input type="checkbox" id="titular">
+Titular
+</label>
+
+<button type="submit">Adicionar</button>
+
+</form>
+
+<hr>
+
+<div id="jogadores-container"></div>
+
+<br>
+
+<a href="/src/pages/selecoes/index.html">Voltar</a>
+
+<script type="module" src="/src/pages/jogadores/index.js"></script>
+
+</body>
+</html>

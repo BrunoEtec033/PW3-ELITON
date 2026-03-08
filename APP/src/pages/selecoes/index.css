@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#selecoes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.card-selecao {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    width: 200px;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+.card-selecao img {
+    width: 120px;
+    margin-bottom: 10px;
+}
+
+.card-selecao h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.card-selecao p {
+    margin: 5px 0;
+}
+
+.acoes {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.acoes button {
+    padding: 6px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #ddd;
+}
+
+.acoes button:hover {
+    background: #ccc;
+}
