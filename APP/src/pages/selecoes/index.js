@@ -1,5 +1,5 @@
 import { getSelecoes, deleteSelecao, postSelecao, putSelecao } from "../../services/selecoes.service.js";
-import { routes } from "../../config/routes.js";
+
 
 async function carregarSelecoes() {
 
@@ -31,7 +31,7 @@ async function carregarSelecoes() {
             </div>
         `;
 
-        // 🔵 BOTÃO VER JOGADORES
+       
         const btnVer = card.querySelector(".btn-ver");
 
         btnVer.addEventListener("click", () => {
@@ -42,7 +42,7 @@ async function carregarSelecoes() {
 
 });
 
-        // 🔴 EXCLUIR
+        
         const btnExcluir = card.querySelector(".btn-excluir");
 
         btnExcluir.addEventListener("click", async () => {
@@ -56,7 +56,7 @@ async function carregarSelecoes() {
             carregarSelecoes();
         });
 
-        // 🟡 EDITAR
+        
         const btnEditar = card.querySelector(".btn-editar");
 
         btnEditar.addEventListener("click", () => {
@@ -75,6 +75,8 @@ async function carregarSelecoes() {
 
 carregarSelecoes();
 
+
+//CHAT QUE FEZ ( NAO ENTENDI )
 const form = document.querySelector("#form-selecao");
 
 form.addEventListener("submit", async (event) => {

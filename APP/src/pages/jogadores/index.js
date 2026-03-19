@@ -3,15 +3,20 @@ import { getSelecoes, putSelecao } from "../../services/selecoes.service.js";
 let selecaoAtual = null;
 
 async function carregarJogadores() {
+    
+    const params = new URLSearchParams(window.location.search);
+    
+    const id = params.get("id") || localStorage.getItem("selecaoId");
 
-    const params = new URLSearchParams(window.location.href.split("?")[1]);
-    const id = localStorage.getItem("selecaoId");
+    console.log("ID identificado:", id);
 
-    console.log("ID da URL:", id);
+    if (!id) {
+        alert("Erro: Nenhum ID de seleção foi encontrado.");
+        return;
+    }
 
     const selecoes = await getSelecoes();
-
-    console.log("Seleções:", selecoes);
+    
 
     selecaoAtual = selecoes.find(s => s.id == id);
 
@@ -20,84 +25,79 @@ async function carregarJogadores() {
         return;
     }
 
-    console.log("Seleção encontrada:", selecaoAtual);
+    console.log("Seleção carregada:", selecaoAtual.nome);
 
-    document.querySelector("#titulo-selecao").innerText = `Seleção: ${selecaoAtual.nome}`;
+   
+    const titulo = document.querySelector("#titulo-selecao");
+    if (titulo) {
+        titulo.innerText = `Seleção: ${selecaoAtual.nome}`;
+    }
 
     renderJogadores();
 }
 
 function renderJogadores() {
-
     const container = document.querySelector("#jogadores-container");
+    if (!container) return;
 
     container.innerHTML = "";
 
     selecaoAtual.jogadores.forEach(jogador => {
-
         const card = document.createElement("div");
-
         card.classList.add("card-jogador");
 
         card.innerHTML = `
-        <h3>${jogador.nome}</h3>
-        <p>Camisa: ${jogador.camisa}</p>
-        <p>Posição: ${jogador.posicao}</p>
-        <p>Gols: ${jogador.gols}</p>
-        <p>${jogador.titular ? "Titular" : "Reserva"}</p>
-        <button class="btn-remover">Remover</button>
+            <h3>${jogador.nome}</h3>
+            <p>Camisa: ${jogador.camisa}</p>
+            <p>Posição: ${jogador.posicao}</p>
+            <p>Gols: ${jogador.gols}</p>
+            <p>${jogador.titular ? "<strong>Titular</strong>" : "Reserva"}</p>
+            <button class="btn-remover">Remover</button>
         `;
 
         const btnRemover = card.querySelector(".btn-remover");
-
         btnRemover.addEventListener("click", async () => {
+            if (!confirm(`Deseja remover o jogador ${jogador.nome}?`)) return;
 
-            const confirmar = confirm("Remover jogador?");
-
-            if (!confirmar) return;
-
+            
             selecaoAtual.jogadores = selecaoAtual.jogadores.filter(j => j.id !== jogador.id);
 
+            
             await putSelecao(selecaoAtual.id, selecaoAtual);
 
+            
             renderJogadores();
         });
 
         container.appendChild(card);
-
     });
-
 }
 
+
 const form = document.querySelector("#form-jogador");
+if (form) {
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-form.addEventListener("submit", async (event) => {
+        const novoJogador = {
+            id: Date.now(),
+            nome: document.querySelector("#nome").value,
+            camisa: Number(document.querySelector("#camisa").value),
+            posicao: document.querySelector("#posicao").value,
+            gols: Number(document.querySelector("#gols").value),
+            titular: document.querySelector("#titular").checked
+        };
 
-    event.preventDefault();
+       
+        selecaoAtual.jogadores.push(novoJogador);
 
-    const nome = document.querySelector("#nome").value;
-    const camisa = Number(document.querySelector("#camisa").value);
-    const posicao = document.querySelector("#posicao").value;
-    const gols = Number(document.querySelector("#gols").value);
-    const titular = document.querySelector("#titular").checked;
+        
+        await putSelecao(selecaoAtual.id, selecaoAtual);
 
-    const novoJogador = {
-        id: Date.now(),
-        nome,
-        camisa,
-        posicao,
-        gols,
-        titular
-    };
+        form.reset();
+        renderJogadores();
+    });
+}
 
-    selecaoAtual.jogadores.push(novoJogador);
-
-    await putSelecao(selecaoAtual.id, selecaoAtual);
-
-    form.reset();
-
-    renderJogadores();
-
-});
 
 carregarJogadores();
