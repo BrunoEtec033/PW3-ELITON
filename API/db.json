@@ -1,20 +1,17 @@
 {
   "selecoes": [
     {
-      "id": "c933",
-      "nome": "Brasil",
-      "grupo": "B",
-      "logo": "aaa",
-      "jogadores": [
-        {
-          "id": 1773920248111,
-          "nome": "aaa",
-          "camisa": 1,
-          "posicao": "aa",
-          "gols": 5,
-          "titular": true
-        }
-      ],
+      "nome": "França",
+      "grupo": "G",
+      "logo": "https://upload.wikimedia.org/wikipedia/pt/2/25/Logo_Sele%C3%A7%C3%A3o_Francesa_2018.png",
+      "id": "5b11"
+    },
+    {
+      "id": "d4ae",
+      "nome": "França",
+      "grupo": "A",
+      "logo": "https://upload.wikimedia.org/wikipedia/pt/2/25/Logo_Sele%C3%A7%C3%A3o_Francesa_2018.png",
+      "jogadores": [],
       "conquistas": []
     }
   ],
