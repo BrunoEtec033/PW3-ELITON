@@ -1,0 +1,19 @@
+{
+  "files.exclude": {    
+    "README.md":true,
+    ".gitignore":true,
+    "APP/README.md":true,
+    "APP/node_modules":true,
+    "API/node_modules":true,
+    "APP/.gitignore":true,
+    "APP/vite.config.ts":true,
+    "APP/tsconfig.json":true,
+    "APP/tsconfig.app.json":true,   
+    "APP/tsconfig.spec.json":true,
+    "APP/tsconfig.node.json":true,
+    "APP/eslint.config.js":true,
+    "APP/package-lock.json":true,
+    "API/package-lock.json":true,
+    "APP/.editorconfig":true
+  }
+}
